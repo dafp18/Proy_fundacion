@@ -5,47 +5,47 @@ class ImagensController < ApplicationController
     before_action :enviar_imagen, only: [:show, :edit, :update, :destroy]
 
     def index
-        @imagen=Imagen.all
-    end    
+        @total_imagenes=Imagen.all
+    end
 
-def new
-@imagen=Imagen.new
-end
+    def new
+        @imagen=Imagen.new
+    end
 
-def create
-#render plain: params[:imagen].inspect
-@imagen = Imagen.new imagen_params
-@imagen.save
+    def create
+     # render plain: params[:imagen].inspect
+        @imagen = Imagen.new imagen_params
+        @imagen.save
 
-redirect_to @imagen
-end
+        redirect_to @imagen
+    end
 
-def show
-    
-end    
+    def show
 
-def edit
+    end
 
-end
+    def edit
 
-def update
-    @imagen.update imagen_params
-    redirect_to @imagen
-    
-end
+    end
 
-def destroy
-    @imagen.destroy
-    redirect_to imagens_path
+    def update
+        @imagen.update imagen_params
+        redirect_to @imagen
+    end
+
+    def destroy
+        @imagen.destroy
+        redirect_to imagens_path
     end
 
     def enviar_imagen
         @imagen = Imagen.find params[:id]
-    end  
+    end
 
     private
-def imagen_params
-    params.require(:imagen).permit(:descripcion)
-end
+
+    def imagen_params
+        params.require(:imagen).permit(:descripcion, :addfoto)
+    end
 
 end

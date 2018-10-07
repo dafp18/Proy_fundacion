@@ -4,9 +4,13 @@
         <%= form_for @imagen do |f| %>
         <%= f.label :descripcion %><br>
         <%= f.text_field :descripcion, class: 'form-control' %><br>
-    
+
+        <%= f.label :addfoto %><br>
+        <%= f.file_field :addfoto  %><br>
+
         <%= f.submit 'Guardar', class: 'btn btn-danger' %>
 
         <% end %>
     </div>
-</div>  
+    
+</div>

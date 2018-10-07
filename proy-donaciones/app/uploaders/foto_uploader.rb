@@ -19,7 +19,7 @@ class FotoUploader < CarrierWave::Uploader::Base
       ActionController::Base.helpers.asset_path('default.jpg')
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+  end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
@@ -48,4 +48,3 @@ class FotoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
    end
-end
