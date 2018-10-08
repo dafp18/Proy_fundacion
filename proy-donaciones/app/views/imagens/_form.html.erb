@@ -5,23 +5,18 @@
         Ha ocurrido un error.
     </div>
     
-<% end %>    
+<% end %>
 
 
 <div class="container">
-
     <div>
-        <%= form_for @imagen do |f| %>
+        <%= form_for @imagen, builder: CustomFormBuilder do |f| %>
+            
         <%= f.label :descripcion %><br>
         <%= f.text_field :descripcion, class: 'input-field col s6' %><br>
 
-        <%- if @imagen.errors[:descripcion].any? %>
-            <span class="new badge">
-            <%= @imagen.errors[:descripcion].first %>
-            </span>
-              
-        <% end %>    
-            
+        <%=f.field_error :descripcion%>
+                  
         <%= f.label :addfoto %><br>
         <%= f.file_field :addfoto  %><br><br>
 
