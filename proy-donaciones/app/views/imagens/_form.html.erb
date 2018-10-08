@@ -1,3 +1,13 @@
+<%- if @imagen.errors.any? %>
+
+    <div class="card-panel teal lighten-2">
+        Uyyy!
+        Ha ocurrido un error.
+    </div>
+    
+<% end %>    
+
+
 <div class="container">
 
     <div>
@@ -5,6 +15,13 @@
         <%= f.label :descripcion %><br>
         <%= f.text_field :descripcion, class: 'input-field col s6' %><br>
 
+        <%- if @imagen.errors[:descripcion].any? %>
+            <span class=" new badge">
+            <%= @imagen.errors[:descripcion].first %>
+            </span>
+              
+        <% end %>    
+            
         <%= f.label :addfoto %><br>
         <%= f.file_field :addfoto  %><br><br>
 
