@@ -5,7 +5,7 @@ class ImagensController < ApplicationController
     before_action :enviar_imagen, only: [:show, :edit, :update, :destroy]
 
     def index
-        @total_imagenes=Imagen.all
+        @total_imagenes=Imagen.where usuario_id: current_usuario.id
     end
 
     def new
@@ -14,7 +14,8 @@ class ImagensController < ApplicationController
 
     def create
      # render plain: params[:imagen].inspect
-        @imagen = Imagen.new imagen_params
+        @imagen = current_usuario.imagens.new imagen_params
+           
        if @imagen.save
         return redirect_to imagens_path
        end 
